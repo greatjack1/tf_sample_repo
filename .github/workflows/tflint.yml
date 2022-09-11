@@ -15,6 +15,9 @@ jobs:
         key: ubuntu-latest-tflint-${{ hashFiles('.tflint.hcl') }}
 
     - uses: hashicorp/setup-terraform@v2
+      name: terraform setup
+
+    - name: Terraform init and validation
       run: terraform init && terraform validate
 
     - uses: terraform-linters/setup-tflint@v2
