@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "yaakov-tf-test-bucket" {
   bucket = "my-tf-test-bucket"
 
   tags = {
-    Name        = "My bucket"
+    Name        = "Yaakovs test bucket"
     Environment = "Dev"
   }
 }
