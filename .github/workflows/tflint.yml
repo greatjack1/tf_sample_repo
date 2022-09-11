@@ -14,6 +14,9 @@ jobs:
         path: ~/.tflint.d/plugins
         key: ubuntu-latest-tflint-${{ hashFiles('.tflint.hcl') }}
 
+    - uses: hashicorp/setup-terraform@v2
+      run: cd main && terraform init
+
     - uses: terraform-linters/setup-tflint@v2
       name: Setup TFLint
       with:
@@ -26,4 +29,4 @@ jobs:
       run: tflint --init
 
     - name: Run TFLint
-      run: cd main && tflint -f compact
+      run: tflint --module -f compact
