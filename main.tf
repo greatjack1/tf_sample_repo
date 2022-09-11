@@ -1,35 +1,35 @@
 
 terraform {
+  required_version = ">= 1.0"
   required_providers {
     aws = {
       version = ">= 2.7.0"
       source = "hashicorp/aws"
     }
   }
-  required_version = "1.2"
 }
 
 
 module "Auth" {
-    source = "Auth"
+    source = "./modules/Auth"
 }
 
 module "Compute" {
-    source = "Compute"
+    source = "./modules/Compute"
 }
 
 module "EventStreams" {
-    source = "EventStreams"
+    source = "./modules/EventStreams"
 }
 
 module "Global" {
-    source = "Global"
+    source = "./modules/Global"
 }
 
 module "Network" {
-    source = "Network"
+    source = "./modules/Network"
 }
 
 module "Storage" {
-    source = "Storage"
+    source = "./modules/Storage"
 }

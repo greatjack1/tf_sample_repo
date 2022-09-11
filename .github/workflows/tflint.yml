@@ -15,7 +15,8 @@ jobs:
         key: ubuntu-latest-tflint-${{ hashFiles('.tflint.hcl') }}
 
     - uses: hashicorp/setup-terraform@v2
-      run: cd main && terraform init
+      run: terraform init
+      run: terraform validate
 
     - uses: terraform-linters/setup-tflint@v2
       name: Setup TFLint
@@ -29,4 +30,10 @@ jobs:
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint --module -f compact
+      run: tflint -f compact
+      run: tflint modules/Auth -f compact
+      run: tflint modules/Compute -f compact
+      run: tflint modules/EventStreams -f compact
+      run: tflint modules/Global -f compact
+      run: tflint modules/Network -f compact
+      run: tflint modules/Storage -f compact
