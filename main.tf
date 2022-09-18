@@ -9,6 +9,16 @@ terraform {
   }
 }
 
+variable "account_id" {
+  type = string
+}
+
+provider "aws" {
+  assume_role {
+    role_arn  = "arn:aws:iam::${var.account_id}:role/yaakov-terraform-assume-role"
+  }
+}
+
 
 module "Auth" {
     source = "./modules/Auth"
