@@ -11,7 +11,7 @@ phases:
   pre_build:
     commands:
       - echo 'Starting terraform deployment'
-      - terraform init
+      - terraform init -backend-config="bucket=$${ACCOUNT}" -backend-config="key=terraform-state" -backend-config="region=us-east-1"
   build:
     commands:
       - echo "[INFO] Running terraform plan"

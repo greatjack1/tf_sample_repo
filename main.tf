@@ -7,11 +7,6 @@ terraform {
       source = "hashicorp/aws"
     }
   }
-    backend "s3" {
-    bucket = "${var.account_id}"
-    key    = "terraform/state"
-    region = "us-east-1"
-  }
 }
 
 variable "account_id" {
