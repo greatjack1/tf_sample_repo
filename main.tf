@@ -7,6 +7,11 @@ terraform {
       source = "hashicorp/aws"
     }
   }
+    backend "s3" {
+    bucket = "${var.account_id}"
+    key    = "terraform/state"
+    region = "us-east-1"
+  }
 }
 
 variable "account_id" {
@@ -17,6 +22,7 @@ provider "aws" {
   assume_role {
     role_arn  = "arn:aws:iam::${var.account_id}:role/yaakov-terraform-assume-role"
   }
+  region = "us-east-1"
 }
 
 
