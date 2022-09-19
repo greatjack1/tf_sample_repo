@@ -14,7 +14,7 @@ phases:
   build:
     commands:
       - echo "[INFO] Running terraform plan"
-      - echo "[INFO] Current account is $${ACCOUNT"
+      - echo "[INFO] Current account is $${ACCOUNT}"
       - terraform plan -var "account_id=$${ACCOUNT}"
   post_build:
     commands:
