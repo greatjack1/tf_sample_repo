@@ -10,12 +10,12 @@ phases:
     on-failure: ABORT
     commands:
       - echo 'Starting terraform deployment'
-      - terraform init -backend-config="bucket=$${ACCOUNT}" -backend-config="key=terraform-state" -backend-config="region=us-east-1"
+      - echo "[INFO] Current account is $ACCOUNT"
+      - terraform init -backend-config="bucket=$ACCOUNT" -backend-config="key=terraform-state" -backend-config="region=us-east-1"
   build:
     commands:
       - echo "[INFO] Running terraform plan"
-      - echo "[INFO] Current account is $${ACCOUNT}"
-      - terraform plan -var "account_id=$${ACCOUNT}"
+      - terraform plan -var "account_id=$ACCOUNT"
   post_build:
     commands:
       - echo "[INFO] Terraform plan ran sucessfully."
