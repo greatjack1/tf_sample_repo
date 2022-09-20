@@ -7,8 +7,7 @@ terraform {
       source = "hashicorp/aws"
     }
   }
-   backend "s3" {
-  }
+
 }
 
 variable "account_id" {
@@ -16,9 +15,9 @@ variable "account_id" {
 }
 
 provider "aws" {
-  assume_role {
-    role_arn  = "arn:aws:iam::${var.account_id}:role/yaakov-terraform-assume-role"
-  }
+#  assume_role {
+#    role_arn  = "arn:aws:iam::${var.account_id}:role/yaakov-terraform-assume-role"
+#  }
   region = "us-east-1"
 }
 
