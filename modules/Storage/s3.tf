@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "yaakov-tf-test-bucket" {
-  bucket_prefix = "my-tf-test-bucket"
+  bucket_prefix = "my-tf-test-buckesadfaasdfasdf"
 
   tags = {
     Name        = "My bucket"
