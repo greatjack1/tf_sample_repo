@@ -11,7 +11,7 @@ phases:
     commands:
       - echo 'Starting terraform deployment'
       - echo "[INFO] Current target account number is $ACCOUNT"
-      - terraform init -backend-config="bucket=$ACCOUNT" -backend-config="key=terraform-state" -backend-config="region=us-east-1"
+      - terraform init -backend-config="bucket=$ACCOUNT-tfstate" -backend-config="key=terraform-state" -backend-config="region=us-east-1"
   build:
     commands:
       - echo "[INFO] Running terraform plan"
