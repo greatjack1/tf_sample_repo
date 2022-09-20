@@ -7,6 +7,8 @@ terraform {
       source = "hashicorp/aws"
     }
   }
+   backend "s3" {
+  }
 }
 
 variable "account_id" {
